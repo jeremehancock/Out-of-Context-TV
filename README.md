@@ -1,6 +1,6 @@
-<img src="http://i.imgur.com/KHtguah.jpg"/>
-# ChannelSurf
-<i>An unauthorized port of <a href="http://Neave.TV">Neave.TV</a> from Flash to HTML5, with additional video content.</i>
+<img src="https://raw.githubusercontent.com/mhancoc7/OutOfContextTv/master/content/images/outofcontext.png"/>
+# OutOfContextTV
+<i>Inspired by Neave.tv and the unauthorized port here: https://github.com/Fortyseven/ChannelSurf</i>
 
 Go play with it! -> <b>http://apps.bytestemplar.com/channelsurf/</b> (Click anywhere to 'change channels'.)
 
