@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/mhancoc7/OutOfContextTv/master/content/images/outofcontext.png"/>
 
 # OutOfContextTV
-<i>Inspired by [Neave TV](https://neave.tv) and the unauthorized port foune [here](https://github.com/Fortyseven/ChannelSurf)</i>
+<i>Inspired by [Neave TV](https://neave.tv) and the unauthorized port found [here](https://github.com/Fortyseven/ChannelSurf)</i>
 
 [Check it out!](http://outofcontext.dumbprojects.com)
 
