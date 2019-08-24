@@ -3,7 +3,9 @@
 # OutOfContextTV
 <i>Inspired by [Neave TV](https://neave.tv) and the unauthorized port foune [here](https://github.com/Fortyseven/ChannelSurf)</i>
 
-Checkout it out here -> <b>http://outofcontext.dumbprojects.com/</b> (Click anywhere to 'change channels' or just wait and let it the wierdness wash over you.)
+[Check it out!](http://outofcontext.dumbprojects.com)
+
+Click anywhere to 'change channels' or just wait and let it the wierdness wash over you.
 
 ## Disclaimer
 
