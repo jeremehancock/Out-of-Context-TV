@@ -5,7 +5,7 @@
 
 [Check it out!](http://outofcontext.dumbprojects.com)
 
-Click anywhere to 'change channels' or just wait and let it the wierdness wash over you.
+Click anywhere to 'change channels' or just wait and let the wierdness wash over you.
 
 ## Disclaimer
 
