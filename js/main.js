@@ -1,4 +1,4 @@
-$.getJSON("https://raw.githubusercontent.com/mhancoc7/ChannelSurf/master/content/clips.json", function (data) {
+$.getJSON("https://raw.githubusercontent.com/mhancoc7/OutOfContextTV/master/content/clips.json", function (data) {
     var clip_list = data;
 
     var TV = function (video_selector, interstitial_selector) {
@@ -48,7 +48,7 @@ $.getJSON("https://raw.githubusercontent.com/mhancoc7/ChannelSurf/master/content
          * @param video_src
          */
         function playVideo(video_src) {
-            _screen[0].src = "https://raw.githubusercontent.com/mhancoc7/ChannelSurf/master/content/video/clips/" + video_src;
+            _screen[0].src = "https://raw.githubusercontent.com/mhancoc7/OutOfContextTV/master/content/video/clips/" + video_src;
         }
 
         /**
