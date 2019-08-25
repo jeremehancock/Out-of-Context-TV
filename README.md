@@ -5,7 +5,7 @@
 
 I wanted to take this concept one step further and make it community driven. The idea is to have anyone submit clips to this project so it can grow organically. See Submission details below.
 
-[Check out OutOfContextTv here!](http://outofcontext.dumbprojects.com)
+[Check out OutOfContextTv!](http://outofcontext.dumbprojects.com)
 
 Click anywhere to 'change channels' or just wait and let the wierdness wash over you.
 
