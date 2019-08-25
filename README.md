@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/mhancoc7/OutOfContextTv/master/content/images/outofcontext.png"/>
 
 # OutOfContextTV
-<i>Inspired by [Neave TV](https://neave.tv) and the unauthorized port found [here](https://github.com/Fortyseven/ChannelSurf)</i>
+<i>Inspired by [Neave TV](https://neave.tv) and the unauthorized port found [here](https://github.com/Fortyseven/ChannelSurf).</i>
 
 I wanted to take this concept one step further and make it community driven. The idea is to have anyone submit clips to this project so it can grow organically. See Submission details below.
 
