@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>OutOfContextTV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="OutOfContextTV">
     <link rel="stylesheet" href="css/reset.css"/>
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="icon" href="content/images/favicon.ico" sizes="any" type="image/ico">
@@ -9,7 +11,8 @@
 <body>
 <div class="video-container">
     <div class="overlay"></div>
-    <video src="https://raw.githubusercontent.com/mhancoc7/OutOfContextTV/master/content/video/support/testcard.mp4" loop
+    <video src="https://raw.githubusercontent.com/mhancoc7/OutOfContextTV/master/content/video/support/testcard.mp4"
+           loop
            class="interstitial" onloadeddata="tv.onClipLoaded()" onended="tv.onClipFinished()"></video>
     <video class="screen" autoplay onloadeddata="tv.onClipLoaded()" onended="tv.onClipFinished()"></video>
 </div>
@@ -27,30 +30,5 @@
               fill="currentColor" class="octo-body"></path>
     </svg>
 </a>
-<style>.github-corner:hover .octo-arm {
-    animation: octocat-wave 560ms ease-in-out
-}
-
-@keyframes octocat-wave {
-    0%, 100% {
-        transform: rotate(0)
-    }
-    20%, 60% {
-        transform: rotate(-25deg)
-    }
-    40%, 80% {
-        transform: rotate(10deg)
-    }
-}
-
-@media (max-width: 500px) {
-    .github-corner:hover .octo-arm {
-        animation: none
-    }
-
-    .github-corner .octo-arm {
-        animation: octocat-wave 560ms ease-in-out
-    }
-}</style>
 </body>
 </html>
