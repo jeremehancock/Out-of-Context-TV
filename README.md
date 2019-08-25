@@ -23,6 +23,6 @@ It is easy to submit your own clips into OutOfContextTV.
 ### Note:
 Clips should be less than 1 minute 30 seconds. Please no <i>inappropriate</i> clips. 
 
-### Disclaimer
+## Disclaimer
 
 This project doesn't own any of the clips. All clips have come from various websites online. If you own the rights to content used in this project and would like it removed please put in a request by submitting an issue to this repo.
