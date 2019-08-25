@@ -18,7 +18,7 @@ It is easy to submit your own clips into OutOfContextTV.
 
 3. Add your clip(s) into the "content/clips.json file (https://github.com/mhancoc7/OutOfContextTv/blob/master/content/clips.json)
 
-4. Put in a pull request to the OutOfContextTv repo.
+4. Put in a pull request to this repo.
 
 ### Note:
 Clips should be less than 1 minute 30 seconds. Please no <i>inappropriate</i> clips. 
