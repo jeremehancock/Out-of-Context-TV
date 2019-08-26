@@ -4,6 +4,7 @@ body {
   height: 100%;
   background-size: contain;
   overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 .video-container {
   position: absolute;
@@ -64,6 +65,12 @@ video.interstitial {
   right: 5px;
   z-index: 100;
 }
+#social {
+  position:absolute;
+  bottom:5px;
+  left:5px;
+  z-index: 100;
+}
 @media (max-width: 500px) {
   .github-corner:hover .octo-arm {
     animation: none
@@ -71,10 +78,4 @@ video.interstitial {
   .github-corner .octo-arm {
     animation: octocat-wave 560ms ease-in-out
   }
-}
-#social {
-  position:absolute;
-  bottom:5px;
-  left:5px;
-  z-index: 100;
 }
