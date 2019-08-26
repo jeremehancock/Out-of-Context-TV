@@ -27,10 +27,10 @@
 </div>
 <div class="video-container">
     <div class="overlay"></div>
-    <video muted src="https://raw.githubusercontent.com/mhancoc7/OutOfContextTV/master/content/video/support/testcard.mp4"
+    <video muted id="flip" src="https://raw.githubusercontent.com/mhancoc7/OutOfContextTV/master/content/video/support/snow.mp4"
            loop
            class="interstitial" onloadeddata="tv.onClipLoaded()" onended="tv.onClipFinished()"></video>
-    <video muted class="screen" autoplay onloadeddata="tv.onClipLoaded()" onended="tv.onClipFinished()"></video>
+    <video muted id="track" class="screen" autoplay onloadeddata="tv.onClipLoaded()" onended="tv.onClipFinished()"></video>
 </div>
 <script src="js/jquery/dist/jquery.min.js"></script>
 <script src="js/main.js"></script>
@@ -46,5 +46,6 @@
               fill="currentColor" class="octo-body"></path>
     </svg>
 </a>
+<div class='unmute' onclick="document.getElementById('track').muted = !document.getElementById('track').muted; document.getElementById('flip').muted = !document.getElementById('flip').muted; $(this).toggleClass('mute');"></div>
 </body>
 </html>
