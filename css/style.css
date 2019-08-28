@@ -46,6 +46,7 @@ video.interstitial {
 .unmute {
   background: url("../content/images/mute.png");
   background-size: cover;
+  opacity: .5;
   width: 40px;
   height: 40px;
   cursor: pointer;
@@ -58,12 +59,16 @@ video.interstitial {
 .mute {
   background: url("../content/images/unmute.png");
   background-size: cover;
+  opacity: .5;
   width: 40px;
   height: 40px;
   position:absolute;
   bottom: 5px;
   right: 5px;
   z-index: 100;
+}
+.mute:hover, .unmute:hover {
+  opacity: .7;
 }
 #social {
   position:absolute;
@@ -84,7 +89,11 @@ video.interstitial {
   left:8px;
   z-index: 100;
   animation: shadow-pulse 3s infinite;
-  animation-direction: alternate;
+  transition: 0.3s;
+}
+#dumb-circle:hover {
+  cursor: pointer;
+  opacity: 1;
 }
 @media (max-width: 500px) {
   .github-corner:hover .octo-arm {
@@ -97,6 +106,9 @@ video.interstitial {
     width: 35px;
     height: 35px;
   }
+  .mute:hover, .unmute:hover {
+    opacity: .5;
+  }
 }
 @keyframes shadow-pulse
 {
@@ -104,6 +116,6 @@ video.interstitial {
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
   }
   100% {
-    box-shadow: 0 0 0 35px rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
   }
 }
