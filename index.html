@@ -18,9 +18,7 @@
 <div id="dumb-circle" onclick="window.open('https://dumbprojects.com', '_blank');"></div>
 <div class="video-container">
     <div class="overlay"></div>
-    <video muted id="flip" src="content/video/support/snow.mp4"
-           loop
-           class="interstitial" onloadeddata="tv.onClipLoaded()" onended="tv.onClipFinished()"></video>
+    <video muted id="flip" src="content/video/support/snow.mp4" loop class="interstitial" onloadeddata="tv.onClipLoaded()" onended="tv.onClipFinished()"></video>
     <video muted id="track" class="screen" autoplay onloadeddata="tv.onClipLoaded()" onended="tv.onClipFinished()"></video>
 </div>
 <script src="js/jquery/dist/jquery.min.js"></script>
@@ -47,6 +45,7 @@
     <!-- AddToAny END -->
 </div>
 <div class='unmute' onclick="document.getElementById('track').muted = !document.getElementById('track').muted; document.getElementById('flip').muted = !document.getElementById('flip').muted; $(this).toggleClass('mute');"></div>
+
 <!-- Default Statcounter code for OutOfContextTV https://outofcontext.dumbprojects.com/ -->
 <script>
     var sc_project=12072343;
@@ -63,6 +62,5 @@
 </noscript>
 <!-- End of Statcounter Code -->
 
-<!-- On GitHub -->
 </body>
 </html>
