@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/mhancoc7/OutOfContextTV/master/content/images/outofcontext.png"/>
+<img src="https://raw.githubusercontent.com/jeremehancock/Out-of-Context-TV/master/content/images/outofcontext.png"/>
 
 # OutOfContextTV
 <i>Inspired by [Neave TV](https://neave.tv) and the unauthorized port found [here](https://github.com/Fortyseven/ChannelSurf).</i>
@@ -14,9 +14,9 @@ It is easy to submit your own clips into OutOfContextTV.
 
 1. Fork this project.
 
-2. Add your clip(s) to the "content/video/clips" directory. (https://github.com/mhancoc7/OutOfContextTV/tree/master/content/video/clips)
+2. Add your clip(s) to the "content/video/clips" directory. (https://github.com/jeremehancock/Out-of-Context-TV/tree/master/content/video/clips)
 
-3. Add your clip(s) into the "content/clips.json" file (https://github.com/mhancoc7/OutOfContextTV/blob/master/content/clips.json)
+3. Add your clip(s) into the "content/clips.json" file (https://github.com/jeremehancock/Out-of-Context-TV/blob/master/content/clips.json)
 
 4. Put in a pull request to this repo.
 
