@@ -1,6 +1,7 @@
-<img src="https://raw.githubusercontent.com/jeremehancock/Out-of-Context-TV/master/content/images/outofcontext.png"/>
+<img src="https://raw.githubusercontent.com/jeremehancock/Out-of-Context-TV/master/content/images/outofcontext-updated.png"/>
 
 # OutOfContextTV
+
 <i>Inspired by [Neave TV](https://neave.tv) and the unauthorized port found [here](https://github.com/Fortyseven/ChannelSurf).</i>
 
 I wanted to take this concept one step further and make it community driven. The idea is to have anyone submit clips to this project so it can grow organically. See Submission details below.
@@ -10,6 +11,7 @@ I wanted to take this concept one step further and make it community driven. The
 Click anywhere to 'change channels' or just wait and let the wierdness wash over you.
 
 ## Submission Details
+
 It is easy to submit your own clips into OutOfContextTV.
 
 1. Fork this project.
@@ -21,7 +23,8 @@ It is easy to submit your own clips into OutOfContextTV.
 4. Put in a pull request to this repo.
 
 ### Note:
-Clips should be less than 1 minute 30 seconds. Please no <i>inappropriate</i> clips. 
+
+Clips should be less than 1 minute 30 seconds. Please no <i>inappropriate</i> clips.
 
 ## Disclaimer
 

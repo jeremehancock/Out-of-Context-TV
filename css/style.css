@@ -80,25 +80,6 @@ video.interstitial {
   left: 5px;
   z-index: 100;
 }
-#dumb-circle {
-  background: url("../content/images/dumb-square.png");
-  background-size: cover;
-  border-radius: 50%;
-  border: 5px solid #4788c7;
-  opacity: 0.8;
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: 10px;
-  left: 8px;
-  z-index: 100;
-  animation: shadow-pulse 3s infinite;
-  transition: 0.3s;
-}
-#dumb-circle:hover {
-  cursor: pointer;
-  opacity: 1;
-}
 @media (max-width: 500px) {
   .github-corner:hover .octo-arm {
     animation: none;
@@ -106,21 +87,9 @@ video.interstitial {
   .github-corner .octo-arm {
     animation: octocat-wave 560ms ease-in-out;
   }
-  #dumb-circle {
-    width: 35px;
-    height: 35px;
-  }
   .mute:hover,
   .unmute:hover {
     opacity: 0.5;
-  }
-}
-@keyframes shadow-pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
-  }
-  100% {
-    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
   }
 }
 
