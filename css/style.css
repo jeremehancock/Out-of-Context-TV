@@ -30,27 +30,30 @@ video.interstitial {
   position: absolute;
 }
 .github-corner:hover .octo-arm {
-  animation: octocat-wave 560ms ease-in-out
+  animation: octocat-wave 560ms ease-in-out;
 }
 @keyframes octocat-wave {
-  0%, 100% {
-    transform: rotate(0)
+  0%,
+  100% {
+    transform: rotate(0);
   }
-  20%, 60% {
-    transform: rotate(-25deg)
+  20%,
+  60% {
+    transform: rotate(-25deg);
   }
-  40%, 80% {
-    transform: rotate(10deg)
+  40%,
+  80% {
+    transform: rotate(10deg);
   }
 }
 .unmute {
   background: url("../content/images/mute.png");
   background-size: cover;
-  opacity: .5;
+  opacity: 0.5;
   width: 40px;
   height: 40px;
   cursor: pointer;
-  position:absolute;
+  position: absolute;
   bottom: 5px;
   right: 5px;
   z-index: 100;
@@ -59,21 +62,22 @@ video.interstitial {
 .mute {
   background: url("../content/images/unmute.png");
   background-size: cover;
-  opacity: .5;
+  opacity: 0.5;
   width: 40px;
   height: 40px;
-  position:absolute;
+  position: absolute;
   bottom: 5px;
   right: 5px;
   z-index: 100;
 }
-.mute:hover, .unmute:hover {
-  opacity: .7;
+.mute:hover,
+.unmute:hover {
+  opacity: 0.7;
 }
 #social {
-  position:absolute;
-  bottom:5px;
-  left:5px;
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
   z-index: 100;
 }
 #dumb-circle {
@@ -81,12 +85,12 @@ video.interstitial {
   background-size: cover;
   border-radius: 50%;
   border: 5px solid #4788c7;
-  opacity: .8;
+  opacity: 0.8;
   width: 50px;
   height: 50px;
-  position:absolute;
-  top:10px;
-  left:8px;
+  position: absolute;
+  top: 10px;
+  left: 8px;
   z-index: 100;
   animation: shadow-pulse 3s infinite;
   transition: 0.3s;
@@ -97,25 +101,83 @@ video.interstitial {
 }
 @media (max-width: 500px) {
   .github-corner:hover .octo-arm {
-    animation: none
+    animation: none;
   }
   .github-corner .octo-arm {
-    animation: octocat-wave 560ms ease-in-out
+    animation: octocat-wave 560ms ease-in-out;
   }
   #dumb-circle {
     width: 35px;
     height: 35px;
   }
-  .mute:hover, .unmute:hover {
-    opacity: .5;
+  .mute:hover,
+  .unmute:hover {
+    opacity: 0.5;
   }
 }
-@keyframes shadow-pulse
-{
+@keyframes shadow-pulse {
   0% {
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
   }
   100% {
     box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+  }
+}
+
+/* Fun Dumb Projects Badge Styling */
+.dumb-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  text-decoration: none;
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #fff;
+}
+
+.dumb-badge:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  animation: wiggle 0.5s ease;
+}
+
+.badge-text {
+  color: #fff;
+  font-size: 14px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.badge-highlight {
+  color: #ffd700;
+  font-size: 16px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  padding: 0 4px;
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 215, 0, 0.5);
+  }
+  50% {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.8),
+      0 0 30px rgba(255, 215, 0, 0.6);
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: translateY(-2px) scale(1.05) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-2px) scale(1.05) rotate(-3deg);
+  }
+  75% {
+    transform: translateY(-2px) scale(1.05) rotate(3deg);
   }
 }
