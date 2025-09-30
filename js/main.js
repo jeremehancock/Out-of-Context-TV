@@ -1,137 +1,166 @@
-$.getJSON("content/clips.json", function (data) {
-    var clip_list = data;
+/**
+ * OutOfContextTV - Modern ES6+ Implementation
+ */
 
-    var TV = function (video_selector, interstitial_selector) {
+class TV {
+  constructor(videoSelector, interstitialSelector, clipList) {
+    this.screen = document.querySelector(videoSelector);
+    this.interstitial = document.querySelector(interstitialSelector);
+    this.clipList = clipList;
+    this.nextInterstitial = false;
+    this.interstitialStartTime = null;
+    this.clipPos = 0;
 
-        var _screen = $(video_selector);
-        var _interstitial = $(interstitial_selector);
-        var _self = this;
-        var _next_interstitial = false;
-        var _interstitial_start_time;
-        var _clip_pos = 0;
+    this.init();
+  }
 
+  /**
+   * Initialize event listeners and start playing
+   */
+  init() {
+    this.screen.addEventListener("loadeddata", () => this.onClipLoaded());
+    this.screen.addEventListener("ended", () => this.onClipFinished());
+    this.interstitial.addEventListener("loadeddata", () => this.onClipLoaded());
+    this.interstitial.addEventListener("ended", () => this.onClipFinished());
 
-        /**
-         *
-         * Based on:
-         * HTML5 video stretch
-         * http://coding.vdhdesign.co.nz/?p=29
-         * The video tag usually enforces the aspect ratio, but... CSS transforms to the rescue!
-         *
-         * @constructor
-         */
-        this.resizeVideo = function (element) {
-            var iOriginalVideoHeight = element.videoHeight;
-            var iCurrentVideoHeight = _screen.height();
-            var iVideoContainerHeight = $(element).parent().height();
-            var iCurrentScale = iOriginalVideoHeight / iCurrentVideoHeight;
-            var iScaleY = (iVideoContainerHeight / iOriginalVideoHeight) * iCurrentScale;
+    this.buildPlaylist();
+    this.loadNextVideo();
+  }
 
+  /**
+   * Based on: HTML5 video stretch
+   * http://coding.vdhdesign.co.nz/?p=29
+   * The video tag usually enforces the aspect ratio, but... CSS transforms to the rescue!
+   */
+  resizeVideo(element) {
+    const originalVideoHeight = element.videoHeight;
+    const currentVideoHeight = this.screen.offsetHeight;
+    const videoContainerHeight = element.parentElement.offsetHeight;
+    const currentScale = originalVideoHeight / currentVideoHeight;
+    const scaleY = (videoContainerHeight / originalVideoHeight) * currentScale;
 
-            //Important to note: Set the origin to the top left corner (0% 0%), or else the position of the video goes astray
-            $(element).css({
-                "transform-origin": "0% 0%",
-                "transform": "scaleY(" + iScaleY + ")",
-                "-ms-transform-origin": "0% 0% ", /* IE 9 */
-                "-ms-transform": "scaleY(" + iScaleY + ")", /* IE 9 */
-                "-moz-transform-origin": "0% 0%", /* Firefox */
-                "-moz-transform": "scaleY(" + iScaleY + ")", /* Firefox */
-                "-webkit-transform-origin": "0% 0%", /* Safari and Chrome */
-                "-webkit-transform": "scaleY(" + iScaleY + ")", /* Safari and Chrome */
-                "-o-transform-origin": "0% 0%", /* Opera */
-                "-o-transform": "scaleY(" + iScaleY + ")" /* Opera */
-            });
-        };
+    element.style.transformOrigin = "0% 0%";
+    element.style.transform = `scaleY(${scaleY})`;
+  }
 
-        /**
-         *
-         * @param video_src
-         */
-        function playVideo(video_src) {
-            _screen[0].src = "content/video/clips/" + video_src;
-        }
+  /**
+   * Play a video from the clips directory
+   */
+  playVideo(videoSrc) {
+    this.screen.src = `content/video/clips/${videoSrc}`;
+  }
 
-        /**
-         *
-         */
-        function loadNextVideo() {
+  /**
+   * Load the next video in the playlist
+   */
+  loadNextVideo() {
+    // Ensure minimum time between transitions
+    if (
+      this.interstitialStartTime &&
+      Date.now() - this.interstitialStartTime < 750
+    ) {
+      setTimeout(() => this.loadNextVideo(), 100);
+      return;
+    }
 
-            if ((new Date().getTime() - _interstitial_start_time) < 750) {
-                setTimeout(loadNextVideo, 100);
-                return;
-            }
+    this.clipPos++;
+    this.playVideo(this.clipList[this.clipPos % this.clipList.length]);
+    this.nextInterstitial = true;
+    this.resizeVideo(this.interstitial);
+  }
 
-            var clip_num = Math.round(Math.random() * (clip_list.length - 1));
+  /**
+   * Play the interstitial/static between clips
+   */
+  playInterstitial() {
+    this.nextInterstitial = false;
+    this.screen.pause();
+    this.interstitial.currentTime = 0;
+    this.interstitial.play();
+    this.interstitial.style.display = "block";
+    this.interstitialStartTime = Date.now();
+    this.loadNextVideo();
+  }
 
-            _clip_pos++;
+  /**
+   * Handle video loaded event
+   */
+  onClipLoaded() {
+    this.interstitial.pause();
+    this.interstitial.style.display = "none";
+    this.resizeVideo(this.screen);
+  }
 
-            playVideo(clip_list[_clip_pos % clip_list.length]);
-            _next_interstitial = true;
-            _self.resizeVideo(_interstitial[0]);
-        }
+  /**
+   * Handle video end event
+   */
+  onClipFinished() {
+    if (this.nextInterstitial) {
+      this.playInterstitial();
+    } else {
+      this.loadNextVideo();
+    }
+  }
 
-        /**
-         *
-         */
-        function playInterstitial() {
-            _next_interstitial = false;
-            _screen[0].pause();
-            _interstitial[0].currentTime = 0;
-            _interstitial[0].play();
-            _interstitial.show();
-            _interstitial_start_time = new Date().getTime();
-            loadNextVideo();
-        }
+  /**
+   * Shuffle the playlist using Fisher-Yates algorithm
+   */
+  shuffle(array) {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
 
-        /**
-         *
-         */
-        this.onClipLoaded = function () {
-            _interstitial[0].pause();
-            _interstitial.hide();
-            this.resizeVideo(_screen[0]);
-        };
+  /**
+   * Build and shuffle the playlist
+   */
+  buildPlaylist() {
+    this.clipList = this.shuffle(this.clipList);
+  }
+}
 
-        /**
-         * When we're playing an interstitial, this will
-         */
-        this.onClipFinished = function () {
-            if (_next_interstitial == true) {
-                playInterstitial();
-            } else {
-                loadNextVideo();
-            }
+/**
+ * Initialize the application
+ */
+async function initApp() {
+  try {
+    // Fetch clip list
+    const response = await fetch("content/clips.json");
+    const clipList = await response.json();
 
-        };
+    // Initialize TV
+    const tv = new TV("video.screen", "video.interstitial", clipList);
 
-        /**
-         * Shuffle an array
-         * http://stackoverflow.com/a/6274381/14615
-         * @param o
-         * @returns {*}
-         */
-        function shuffle(o) {
-            for (var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x) {
-            }
-            return o;
-        }
-
-        function buildPlaylist() {
-            shuffle(clip_list);
-        }
-
-        buildPlaylist();
-        loadNextVideo();
-    };
-
-    /************************************************************
-     * Main
-     ************************************************************/
-    $(document).ready(function () {
-        tv = new TV("video.screen", "video.interstitial");
-        $(".overlay").click(function () {
-            tv.onClipFinished();
-        });
+    // Setup event listeners
+    document.querySelector(".overlay").addEventListener("click", () => {
+      tv.onClipFinished();
     });
 
-});
+    document.querySelector("#dumb-circle").addEventListener("click", () => {
+      window.open("https://dumbprojects.com", "_blank");
+    });
+
+    // Setup mute toggle
+    const unmuteBtn = document.querySelector(".unmute");
+    const trackVideo = document.querySelector("#track");
+    const flipVideo = document.querySelector("#flip");
+
+    unmuteBtn.addEventListener("click", () => {
+      trackVideo.muted = !trackVideo.muted;
+      flipVideo.muted = !flipVideo.muted;
+      unmuteBtn.classList.toggle("mute");
+    });
+  } catch (error) {
+    console.error("Failed to initialize app:", error);
+  }
+}
+
+// Start when DOM is ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initApp);
+} else {
+  initApp();
+}
