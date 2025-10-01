@@ -10,6 +10,37 @@ I wanted to take this concept one step further and make it community driven. The
 
 Click anywhere to 'change channels' or just wait and let the wierdness wash over you.
 
+## URL Parameters
+
+OutOfContextTV supports URL parameters to customize your viewing experience:
+
+### Hide UI Elements
+
+Hide all buttons, banners, and controls for a clean viewing experience:
+
+- `?hideUI=true` - Hides the GitHub corner, social badge, and unmute button
+- `?controls=false` - Alternative syntax for hiding UI elements
+
+**Example:** `https://outofcontext.dumbprojects.com?hideUI=true`
+
+### Volume Control
+
+Control the initial volume state:
+
+- `?muted=false` - Start with volume ON
+- `?volume=on` - Alternative syntax for volume ON
+- By default, videos start muted (no parameter needed)
+
+**Example:** `https://outofcontext.dumbprojects.com?muted=false`
+
+### Combining Parameters
+
+You can combine multiple parameters using `&`:
+
+**Example:** `https://outofcontext.dumbprojects.com?hideUI=true&muted=false`
+
+This is perfect for embedding OutOfContextTV in iframes or creating a distraction-free viewing experience!
+
 ## Submission Details
 
 It is easy to submit your own clips into OutOfContextTV.
@@ -25,6 +56,14 @@ It is easy to submit your own clips into OutOfContextTV.
 ### Note:
 
 Clips should be less than 1 minute 30 seconds. Please no <i>inappropriate</i> clips.
+
+## License
+
+[MIT License](LICENSE)
+
+## AI Assistance Disclosure
+
+This tool was developed with assistance from AI language models.
 
 ## Disclaimer
 
