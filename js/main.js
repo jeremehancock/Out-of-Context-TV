@@ -123,10 +123,45 @@ class TV {
 }
 
 /**
+ * Parse URL parameters
+ */
+function getUrlParams() {
+  const params = new URLSearchParams(window.location.search);
+  return {
+    hideUI:
+      params.get("hideUI") === "true" || params.get("controls") === "false",
+    muted: params.get("muted") !== "false" && params.get("volume") !== "on",
+  };
+}
+
+/**
+ * Apply UI visibility based on URL params
+ */
+function applyUISettings(hideUI) {
+  if (hideUI) {
+    // Hide all UI elements
+    const uiElements = [".github-corner", "#social", ".unmute"];
+
+    uiElements.forEach((selector) => {
+      const element = document.querySelector(selector);
+      if (element) {
+        element.style.display = "none";
+      }
+    });
+  }
+}
+
+/**
  * Initialize the application
  */
 async function initApp() {
   try {
+    // Get URL parameters
+    const urlParams = getUrlParams();
+
+    // Apply UI settings
+    applyUISettings(urlParams.hideUI);
+
     // Fetch clip list
     const response = await fetch("content/clips.json");
     const clipList = await response.json();
@@ -139,20 +174,33 @@ async function initApp() {
       tv.onClipFinished();
     });
 
-    document.querySelector("#dumb-circle").addEventListener("click", () => {
-      window.open("https://dumbprojects.com", "_blank");
-    });
+    const dumbCircle = document.querySelector("#dumb-circle");
+    if (dumbCircle) {
+      dumbCircle.addEventListener("click", () => {
+        window.open("https://dumbprojects.com", "_blank");
+      });
+    }
 
-    // Setup mute toggle
+    // Setup mute toggle and apply initial mute state
     const unmuteBtn = document.querySelector(".unmute");
     const trackVideo = document.querySelector("#track");
     const flipVideo = document.querySelector("#flip");
 
-    unmuteBtn.addEventListener("click", () => {
-      trackVideo.muted = !trackVideo.muted;
-      flipVideo.muted = !flipVideo.muted;
-      unmuteBtn.classList.toggle("mute");
-    });
+    // Set initial mute state from URL params
+    trackVideo.muted = urlParams.muted;
+    flipVideo.muted = urlParams.muted;
+
+    if (!urlParams.muted && unmuteBtn) {
+      unmuteBtn.classList.add("mute");
+    }
+
+    if (unmuteBtn) {
+      unmuteBtn.addEventListener("click", () => {
+        trackVideo.muted = !trackVideo.muted;
+        flipVideo.muted = !flipVideo.muted;
+        unmuteBtn.classList.toggle("mute");
+      });
+    }
   } catch (error) {
     console.error("Failed to initialize app:", error);
   }
